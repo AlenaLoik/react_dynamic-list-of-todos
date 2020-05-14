@@ -20,16 +20,19 @@ const App: React.FC = () => {
         }));
       }).then(() => {
         setTodos(updateTotos);
+        setLoading(false);
+        setLoaded(true);
       });
   };
 
   const handleLoading = () => {
+
+
     setLoading(true);
-    loadAllTodos();
-    setTimeout(() => {
-      setLoading(false);
-      setLoaded(true);
-    }, 1500);
+      setTimeout(() => {
+        loadAllTodos();
+      }, 1000);
+
   };
 
   const sortByTodosName = () => {
