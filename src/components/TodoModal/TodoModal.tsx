@@ -9,8 +9,15 @@ type Props = {
   closeModal: () => void;
 };
 
+const defaultUser: User = {
+  id: 0,
+  name: '',
+  email: '',
+  phone: '',
+};
+
 export const TodoModal: React.FC<Props> = ({ todo, closeModal }) => {
-  const [user, setUser] = useState({} as User);
+  const [user, setUser] = useState(defaultUser as User);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -65,7 +72,7 @@ export const TodoModal: React.FC<Props> = ({ todo, closeModal }) => {
 
               {' by '}
 
-              <a href="mailto:Sincere@april.biz">{user.name}</a>
+              <a href={`mailto:${user.email}`}>{user.name}</a>
             </p>
           </div>
         </div>
